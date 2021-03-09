@@ -1,0 +1,64 @@
+\documentclass[a4, 12pt, twoside,openany]{book}
+\usepackage[T1]{fontenc} %come sotto
+\usepackage[utf8]{inputenc} %aggiunge caratteri accentati
+\usepackage[italian]{babel} %lingua
+\usepackage[osf]{libertinus} %font generale del documento
+\usepackage{indentfirst} %rientro paragrafo
+\pagestyle{plain} %nessun heading o foot particolare
+\usepackage[a4paper,top=3cm,bottom=3cm,left=3cm,right=3cm]{geometry} %impaginazione e margini documento
+
+\usepackage{graphicx, wrapfig} %gestione immagini e grafiche
+\graphicspath{  {./images/}  } %cartella delle immagini
+
+\usepackage{titlesec} %le impostazioni default del package titlesec
+\titleformat{\chapter}[display]
+{\normalfont\huge\filcenter}{\thechapter}{20pt}{\Huge} %ho rimosso bfseries 
+\titleformat{\section}                          %dalle voci contrassegnate
+{\normalfont\Large}{\thesection}{1em}{}         %%%qui
+\titleformat{\subsection}[runin]
+{\normalfont\large}{\thesubsection}{1em}{}      %%%qui
+\titleformat{\subsubsection}[runin]
+{\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
+\titleformat{\paragraph}[runin]
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titleformat{\subparagraph}[runin]
+{\normalfont\normalsize\bfseries}{\thesubparagraph}{1em}{}
+\titlespacing*{\chapter}{0pt}{50pt}{40pt}
+\titlespacing*{\section}{0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
+\titlespacing*{\subsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\titlespacing*{\subsubsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\titlespacing*{\paragraph}{0pt}{3.25ex plus 1ex minus .2ex}{1em}
+\titlespacing*{\subparagraph}{\parindent}{3.25ex plus 1ex minus .2ex}{1em}
+
+\usepackage[nottoc]{tocbibind} %include la voce bibliografia nell'indice
+\usepackage[autostyle,italian=guillemets]{csquotes} %rende più semplice la gestione di bibtex e permette inoltre di citare cose estese
+\usepackage[backend=biber,bibstyle=authortitle,citestyle=verbose-trad1]{biblatex}
+\addbibresource{bibliography.bib}
+\renewcommand\mkbibnamefamily[1]{\textsc{#1}} %autori in maiuscoletto
+
+\usepackage{hyperref} %NB da caricare per ultimo, nel caso usare \phantomsection per la bibliografia
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\input{titlepage} %inserisce il frontespizio
+%\thispagestyle{empty} %sospende la numerazione della pagina
+\phantomsection %inserisce l'indice nell'indice
+\addcontentsline{toc}{chapter}{Indice}
+\tableofcontents %SOMMARIO
+%\thispagestyle{empty}
+
+\chapter*{Introduzione} %sospende la numerazione dei capitoli per la sezione
+\addcontentsline{toc}{chapter}{Introduzione}
+\input{titlepageUNIPI} %input permette il nesting, \include lo impedisce
+
+\chapter{Capitolo 1}
+%\input{}
+
+\chapter{Capitolo 2}
+%\input{}
+
+\chapter{Capitolo 3}
+
+%\bibliographystyle{siam} %questo set di comandi esclude e rimpiazza DEL TUTTO i comandi definiti come da preambolo. In caso di modifica per tornare ai comandi standard, verificare di sostituire correttamente TUTTI i componenti, sia nel preambolo che nella coda del documento.
+%\bibliography{bibliography}
+\printbibliography %inserisce le voci citate
+\end{document}
