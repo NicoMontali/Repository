@@ -10,7 +10,11 @@
 \usepackage{graphicx, wrapfig} %gestione immagini e grafiche
 \graphicspath{  {./images/}  } %cartella delle immagini
 
-\usepackage{titlesec} %le impostazioni default del package titlesec
+\usepackage{tocloft} %rimuove il grassetto dall'indice
+\renewcommand{\cfttoctitlefont}{\huge\centerline}
+\renewcommand{\cftchapfont}{\large}
+
+\usepackage{titlesec} %cambia le impostazioni dei titoli
 \titleformat{\chapter}[display]
 {\normalfont\huge\filcenter}{\thechapter}{20pt}{\Huge} %ho rimosso bfseries 
 \titleformat{\section}                          %dalle voci contrassegnate
