@@ -36,6 +36,11 @@
 
 \usepackage[nottoc]{tocbibind} %include la voce bibliografia nell'indice
 \usepackage[autostyle,italian=guillemets]{csquotes} %rende più semplice la gestione di bibtex e permette inoltre di citare cose estese
+
+\usepackage{etoolbox} %setta il carattere delle citazioni estese come più piccolo e rimuove il separatore verticale
+\AtBeginEnvironment{quote}{\vspace{-\topsep}\small}
+\AtEndEnvironment{quote}{\vspace{-\topsep}}
+
 \usepackage[backend=biber,bibstyle=authortitle,citestyle=verbose-trad1]{biblatex}
 \addbibresource{bibliography.bib}
 \renewcommand\mkbibnamefamily[1]{\textsc{#1}} %autori in maiuscoletto
