@@ -16,13 +16,14 @@
 \renewcommand{\cftchapfont}{\large}
 %GESTIONE TITOLI PARAGRAFI E SEZIONI
 \usepackage{titlesec} %cambia le impostazioni di default dei titoli delle sezioni
+%NB queste impostazioni rispettano le linee guida d'ateneo
 %NB no punto finale nei titoli delle sezioni del corpo del testo
-\titleformat{\chapter}[display]
-{\normalfont\huge\bfseries\scshape\filcenter}{\thechapter}{20pt}{\Huge} %ho rimosso 
-\titleformat{\section}          %bfseries dalle voci contrassegnate
-{\normalfont\Large\bfseries}{\thesection}{1em}{}         %%%qui
-\titleformat{\subsection}[runin]
-{\normalfont\large\itshape}{\normalfont\thesubsection}{1em}{}      %%%qui
+\titleformat{\chapter}[display] %inserire "\chaptertitlename" per ripristinare la dicitura "capitolo" sopra il titolo del capitolo stesso.
+{\normalfont\huge\bfseries\scshape}{\thechapter}{20pt}{\Huge} 
+\titleformat{\section}
+{\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}[runin] %runin fa del titolo un elemento inline
+{\normalfont\large\itshape}{\normalfont\thesubsection}{1em}{}
 \titleformat{\subsubsection}[runin]
 {\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
 \titleformat{\paragraph}[runin]
@@ -44,7 +45,7 @@
 \AtEndEnvironment{quote}{\vspace{-\topsep}}
 %GESTIONE BIBLIOGRAFIA
 %\usepackage{biblatex-chicago} %ottimo pacchetto, molto ricco ma anche complicato da settare
-\usepackage[backend=biber,bibstyle=authortitle, firstinits=true,citestyle=verbose-trad1]{biblatex}
+\usepackage[backend=biber,bibstyle=authortitle, giveninits=true,citestyle=verbose-trad1]{biblatex}
 \addbibresource{bibliography.bib} %specifica il file della bibliografia
 \renewcommand*{\newunitpunct}{\addcomma\space} %separa i campi con virgole e non con punti, come di default
 \renewcommand*{\revsdnamepunct}{} %rimuove la virgola tra nome e cognome dell'autore
@@ -66,13 +67,13 @@
 \addcontentsline{toc}{chapter}{Introduzione}
 \input{chapters/intro} %input permette il nesting, \include lo impedisce
 
-\chapter{Capitolo 1}
+\chapter{Qui 1}
 %\input{}
 
-\chapter{Capitolo 2}
+\chapter{Quo 2}
 %\input{}
 
-\chapter{Capitolo 3}
+\chapter{Qua 3}
 %\input{}
 
 %\bibliographystyle{siam} %questo set di comandi esclude e rimpiazza DEL TUTTO i comandi definiti come da preambolo. In caso di modifica per tornare ai comandi standard, verificare di sostituire correttamente TUTTI i componenti, sia nel preambolo che nella coda del documento.
